@@ -9,6 +9,7 @@ import classNames from 'classnames';
  */
 import { useInstanceId } from '@wordpress/compose';
 import { useState, forwardRef } from '@wordpress/element';
+import { IconButton } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -82,7 +83,10 @@ export function SearchInputControl(
 				stateReducer={ stateReducer }
 				value={ value }
 			/>
-
+			<IconButton
+				icon="search"
+				label="search"
+			/>
 		</InputBase>
 	);
 }
