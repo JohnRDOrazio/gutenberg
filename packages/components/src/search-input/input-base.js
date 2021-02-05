@@ -56,7 +56,7 @@ export function InputBase(
 		>
 			<LabelWrapper>
 				<Label
-					className="components-input-control__label"
+					className="components-searchinput-control__label"
 					hideLabelFromVision={ hideLabelFromVision }
 					labelPosition={ labelPosition }
 					htmlFor={ id }
@@ -67,20 +67,20 @@ export function InputBase(
 			</LabelWrapper>
 			<Container
 				__unstableInputWidth={ __unstableInputWidth }
-				className="components-input-control__container"
+				className="components-searchinput-control__container"
 				disabled={ disabled }
 				hideLabel={ hideLabel }
 				isFocused={ isFocused }
 				labelPosition={ labelPosition }
 			>
 				{ prefix && (
-					<Prefix className="components-input-control__prefix">
+					<Prefix className="components-searchinput-control__prefix">
 						{ prefix }
 					</Prefix>
 				) }
 				{ children }
 				{ suffix && (
-					<Suffix className="components-input-control__suffix">
+					<Suffix className="components-searchinput-control__suffix">
 						{ suffix }
 					</Suffix>
 				) }

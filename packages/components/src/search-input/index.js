@@ -48,7 +48,7 @@ export function InputControl(
 	const [ isFocused, setIsFocused ] = useState( false );
 
 	const id = useUniqueId( idProp );
-	const classes = classNames( 'components-input-control', className );
+	const classes = classNames( 'components-searchinput-control', className );
 
 	return (
 		<InputBase
@@ -68,7 +68,7 @@ export function InputControl(
 		>
 			<InputField
 				{ ...props }
-				className="components-input-control__input"
+				className="components-searchinput-control__input"
 				disabled={ disabled }
 				id={ id }
 				isFocused={ isFocused }
