@@ -10,32 +10,25 @@ import BaseInputControl from '../';
 
 const getInput = () => screen.getByTestId( 'input' );
 
-describe( 'InputControl', () => {
-	const InputControl = ( props ) => (
+describe( 'SearchInputControl', () => {
+	const SearchInputControl = ( props ) => (
 		<BaseInputControl { ...props } data-testid="input" />
 	);
 
 	describe( 'Basic rendering', () => {
 		it( 'should render', () => {
-			render( <InputControl /> );
+			render( <SearchInputControl /> );
 
 			const input = getInput();
 
 			expect( input ).toBeTruthy();
 		} );
 
-		it( 'should render with specified type', () => {
-			render( <InputControl type="number" /> );
-
-			const input = getInput();
-
-			expect( input.getAttribute( 'type' ) ).toBe( 'number' );
-		} );
 	} );
 
 	describe( 'Label', () => {
 		it( 'should render label', () => {
-			render( <InputControl label="Hello" value="There" /> );
+			render( <SearchInputControl label="Hello" value="There" /> );
 
 			const input = screen.getByText( 'Hello' );
 
@@ -46,7 +39,7 @@ describe( 'InputControl', () => {
 	describe( 'Value', () => {
 		it( 'should update value onChange', () => {
 			const spy = jest.fn();
-			render( <InputControl value="Hello" onChange={ spy } /> );
+			render( <SearchInputControl value="Hello" onChange={ spy } /> );
 
 			const input = getInput();
 			input.focus();
@@ -59,7 +52,7 @@ describe( 'InputControl', () => {
 		it( 'should work as a controlled component', () => {
 			const spy = jest.fn();
 			const { rerender } = render(
-				<InputControl value="one" onChange={ spy } />
+				<SearchInputControl value="one" onChange={ spy } />
 			);
 
 			const input = getInput();
@@ -67,18 +60,18 @@ describe( 'InputControl', () => {
 			input.focus();
 			fireEvent.change( input, { target: { value: 'two' } } );
 
-			// Ensuring <InputControl /> is controlled
+			// Ensuring <SearchInputControl /> is controlled
 			fireEvent.blur( input );
 
 			// Updating the value
-			rerender( <InputControl value="three" onChange={ spy } /> );
+			rerender( <SearchInputControl value="three" onChange={ spy } /> );
 
 			expect( input.value ).toBe( 'three' );
 
 			/*
 			 * onChange called only once. onChange is not called when a
 			 * parent component explicitly passed a (new value) change down to
-			 * the <InputControl />.
+			 * the <SearchInputControl />.
 			 */
 			expect( spy ).toHaveBeenCalledTimes( 1 );
 		} );
@@ -86,20 +79,20 @@ describe( 'InputControl', () => {
 		it( 'should change back to initial value prop, if controlled', () => {
 			const spy = jest.fn();
 			const { rerender } = render(
-				<InputControl value="Original" onChange={ spy } />
+				<SearchInputControl value="Original" onChange={ spy } />
 			);
 
 			const input = getInput();
 
-			// Assuming <InputControl /> is controlled (not focused)
+			// Assuming <SearchInputControl /> is controlled (not focused)
 
 			// Updating the value
-			rerender( <InputControl value="New" onChange={ spy } /> );
+			rerender( <SearchInputControl value="New" onChange={ spy } /> );
 
 			expect( input.value ).toBe( 'New' );
 
 			// Change it back to the original value
-			rerender( <InputControl value="Original" onChange={ spy } /> );
+			rerender( <SearchInputControl value="Original" onChange={ spy } /> );
 
 			expect( input.value ).toBe( 'Original' );
 			expect( spy ).toHaveBeenCalledTimes( 0 );

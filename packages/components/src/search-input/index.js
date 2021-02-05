@@ -17,13 +17,13 @@ import InputBase from './input-base';
 import InputField from './input-field';
 
 function useUniqueId( idProp ) {
-	const instanceId = useInstanceId( InputControl );
+	const instanceId = useInstanceId( SearchInputControl );
 	const id = `inspector-input-control-${ instanceId }`;
 
 	return idProp || id;
 }
 
-export function InputControl(
+export function SearchInputControl(
 	{
 		__unstableStateReducer: stateReducer = ( state ) => state,
 		__unstableInputWidth,
@@ -82,10 +82,11 @@ export function InputControl(
 				stateReducer={ stateReducer }
 				value={ value }
 			/>
+
 		</InputBase>
 	);
 }
 
-const ForwardedComponent = forwardRef( InputControl );
+const ForwardedComponent = forwardRef( SearchInputControl );
 
 export default ForwardedComponent;

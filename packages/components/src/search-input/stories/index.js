@@ -11,11 +11,11 @@ import { useState } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import InputControl from '../';
+import SearchInputControl from '../';
 
 export default {
-	title: 'Components/InputControl',
-	component: InputControl,
+	title: 'Components/SearchInputControl',
+	component: SearchInputControl,
 };
 
 function Example() {
@@ -52,7 +52,7 @@ function Example() {
 	const prefixMarkup = props.prefix ? <div>{ props.prefix }</div> : null;
 
 	return (
-		<InputControl
+		<SearchInputControl
 			{ ...props }
 			onChange={ ( v ) => setValue( v ) }
 			prefix={ prefixMarkup }
