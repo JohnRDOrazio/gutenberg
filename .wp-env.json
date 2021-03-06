@@ -1,7 +1,8 @@
 {
 	"core": "WordPress/WordPress",
 	"plugins": [
-		"."
+		".",
+		"../bibleget/bibleget-wordpress"
 	],
 	"themes": [ "WordPress/theme-experiments/tt1-blocks#tt1-blocks@0.4.3" ],
 	"env": {
