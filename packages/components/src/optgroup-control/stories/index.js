@@ -1,0 +1,80 @@
+/**
+ * External dependencies
+ */
+import { boolean, object, select, text } from '@storybook/addon-knobs';
+
+/**
+ * WordPress dependencies
+ */
+import { useState } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
+import OptGroupControl from '../';
+
+export default {
+	title: 'Components/OptGroupControl',
+	component: OptGroupControl,
+};
+
+const OptGroupControlWithState = ( props ) => {
+	const [ selection, setSelection ] = useState();
+
+	return (
+		<OptGroupControl
+			{ ...props }
+			value={ selection }
+			onChange={ setSelection }
+		/>
+	);
+};
+
+export const _default = () => {
+	const props = {
+		disabled: boolean( 'disabled', false ),
+		help: text( 'help', 'Help text to explain the select control.' ),
+		hideLabelFromVision: boolean( 'hideLabelFromVision', false ),
+		label: text( 'label', 'Value' ),
+		labelPosition: select(
+			'labelPosition',
+			{
+				top: 'top',
+				side: 'side',
+				bottom: 'bottom',
+			},
+			'top'
+		),
+		multiple: boolean( 'multiple', false ),
+		options: object( 'Options', [
+			{ value: null, label: 'Select an Option', disabled: true },
+			{ value: 'a', label: 'Option A' },
+			{ value: 'b', label: 'Option B' },
+			{ value: 'c', label: 'Option C' },
+			{
+				value: [
+					{ value: 'd', label: 'Option D' },
+					{ value: 'e', label: 'Option E' },
+				],
+				label: 'Group A',
+			},
+			{
+				value: [
+					{ value: 'f', label: 'Option F' },
+					{ value: 'g', label: 'Option G' },
+				],
+				label: 'Group B',
+			},
+		] ),
+		size: select(
+			'size',
+			{
+				default: 'default',
+				small: 'small',
+			},
+			'default'
+		),
+	};
+
+	return <OptGroupControlWithState { ...props } />;
+};

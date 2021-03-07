@@ -1110,6 +1110,12 @@
 		"parent": "components"
 	},
 	{
+		"title": "OptgroupControl",
+		"slug": "optgroup-control",
+		"markdown_source": "../packages/components/src/optgroup-control/README.md",
+		"parent": "components"
+	},
+	{
 		"title": "Panel",
 		"slug": "panel",
 		"markdown_source": "../packages/components/src/panel/README.md",
